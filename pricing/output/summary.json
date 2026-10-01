@@ -1,0 +1,35 @@
+{
+  "inputs": {
+    "evidence_status": "Synthetic example, scaled from the paper. Not market-calibrated.",
+    "currency": "USD",
+    "time_unit": "year",
+    "revenue": 10000.0,
+    "operating_cost": 2500.0,
+    "salvage": 25000.0,
+    "discount_rate": 0.1,
+    "baseline_erosion": 0.08,
+    "revenue_multiplier_min": 0.4,
+    "revenue_multiplier_max": 1.6,
+    "erosion_min": 0.01,
+    "erosion_max": 0.2,
+    "grid_points": 121
+  },
+  "baseline": {
+    "value": 39898.84905837462,
+    "retirement": 8.664339756999317,
+    "cashflow_pv": 29387.643867703184,
+    "salvage_pv": 10511.205190671431,
+    "revenue_delta": 4.387643867703175,
+    "erosion_sensitivity": -142566.15595294072
+  },
+  "counterexample": {
+    "value": 31411.0756195242,
+    "retirement": 13.118213223374553,
+    "cashflow_pv": 24677.84876095159,
+    "salvage_pv": 6733.226858572608,
+    "revenue_delta": 6.606864908058305,
+    "erosion_sensitivity": -210658.6731663117
+  },
+  "rows": 14641,
+  "model": "deterministic one-tier optimal retirement"
+}

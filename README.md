@@ -24,6 +24,23 @@ The script writes [visuals/scenarios.csv](visuals/scenarios.csv): three scenario
 
 The model holds operating costs and salvage constant. Revenue is normalized, time is in model years, and the cohort assumes an exponential distribution of initial log revenue buffers. Full parameters and equations appear below the charts.
 
+## Price the remaining cash flows
+
+A longer operating life does not guarantee a higher asset value. The [valuation surface](pricing/README.md) shows both, including the region where life extends while value falls.
+
+![GPU asset valuation surface with retirement contours and a hatched longer-life, lower-value region](pricing/output/price_surface.png)
+
+The default example is synthetic: value falls from **$39,899 to $31,411** while remaining life rises from **8.66 to 13.12 model years**. Dollar amounts scale the paper's normalized example; they are not market quotes.
+
+```sh
+python3 pricing_surface.py
+python3 pricing/check_pricing.py
+```
+
+Quants can replace [the inputs](pricing/example.json) and export asset values, cash-flow and salvage components, retirement dates, revenue sensitivity, and erosion-rate sensitivity. The [CSV](pricing/output/surface.csv) includes 14,641 scenarios, with exact assumptions in [the metadata](pricing/output/summary.json). [Pricing documentation](pricing/README.md) explains units, the mapping from rental income, and the optional plotting dependencies. The engine uses only the Python standard library; redrawing the PNG/SVG requires Matplotlib.
+
+Architect's [compute-market work on AX](https://architect.co/ax/) is worth following as rental-price risk becomes tradable. Such references could help connect models like this to observed markets, provided the index actually matches the equipment and cash flows being valued. This repo uses no Architect quotes and has no exchange integration; [the market-context note](pricing/README.md#compute-markets-worth-following) explains the basis-risk distinction.
+
 ## Author
 
 **Uwe Jens Cerron · Liquid Labor**
@@ -32,7 +49,7 @@ The model holds operating costs and salvage constant. Revenue is normalized, tim
 - LinkedIn: [Uwe Cerron](https://www.linkedin.com/in/uwecerron/)
 - X / Twitter: [@uwece](https://x.com/uwece)
 
-## Reproduce everything
+## Reproduce the paper checks
 
 Install Python 3.9 or newer. No GPU, API key, paid service, or third-party Python package is needed. The default checks use the included data and do not fetch anything from the internet.
 
@@ -52,7 +69,7 @@ The theoretical verification uses a fixed random seed, `20261001`. The numerical
 
 ## Run individual scripts
 
-Python 3 is required. All scripts use the standard library; no packages need installing. Run these commands from this repository directory:
+Python 3 is required. The following scripts use the standard library; no packages need installing. Run these commands from this repository directory:
 
 ```sh
 python3 anc/verify.py
