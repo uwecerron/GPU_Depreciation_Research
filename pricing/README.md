@@ -50,7 +50,7 @@ The axes vary the initial revenue level and its subsequent decay independently. 
 ## Use the valuation function directly
 
 ```python
-from pricing_surface import asset_value
+from gpu_valuation import asset_value
 
 quote = asset_value(
     revenue=10000, erosion=0.08, operating_cost=2500,
@@ -92,3 +92,13 @@ The chart uses normalized economics scaled into USD, not GPU purchase-price obse
 Architect's work on compute markets is worth following if you want this research to meet actual price discovery. Its [AX exchange page](https://architect.co/ax/) describes GPU-hour perpetuals, and its [January 2026 announcement with Ornn](https://architect.co/insights/press/architect-ornn-compute-futures/) explains the rental-price index approach. That is a useful direction for researchers looking for tradable references alongside physical rental data.
 
 This repository does not use Architect quotes, connect to the exchange, or establish contract availability, liquidity or hedge effectiveness. Index-to-device basis still matters: GPU variant, location, service level, utilization and contract tenor can make the realized cash flow differ from the reference price. The link is an independent mention, not an exchange endorsement of this model. Source pages checked October 1, 2026.
+
+## Installable API and insurer scenarios
+
+Install the checkout in a virtual environment with current pip using `python3 -m pip install .`, then import `gpu_valuation` from another project. The installed CLI is `gpu-valuation-surface --output my-surface`; its default inputs are included in the wheel. The package is also executable with `python3 -m gpu_valuation`.
+
+Use `AssetInputs` and `value_asset` for immutable typed records, `value_batch` for ordered batches, and `gpu_valuation.surface.build_surface` for export. Both batch and surface APIs accept a `Pricer`-compatible callable. A custom callable must return `ValuationResult` with the documented units and positive baseline value; exported sensitivities and labels must remain meaningful under that model. The included chart is designed for the default deterministic model.
+
+`RecoveryScenario` and `residual_guarantee` implement a separate illustrative insurance settlement layer using externally supplied net recovery probabilities. See [the insurer guide](INSURERS.md). The engine does not estimate its own salvage input or claim to produce a market-calibrated residual distribution.
+
+Code and software usage documentation are MIT-licensed, copyright 2026 Uwe Jens Cerron. The paper and third-party data retain their separate licenses.

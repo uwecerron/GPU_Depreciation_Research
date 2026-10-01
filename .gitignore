@@ -2,3 +2,8 @@ __pycache__/
 *.py[cod]
 .DS_Store
 survival.dat
+build/
+dist/
+*.egg-info/
+.venv/
+gpu-surface/

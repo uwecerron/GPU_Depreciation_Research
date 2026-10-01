@@ -41,6 +41,42 @@ Quants can replace [the inputs](pricing/example.json) and export asset values, c
 
 Architect's [compute-market work on AX](https://architect.co/ax/) is worth following as rental-price risk becomes tradable. Such references could help connect models like this to observed markets, provided the index actually matches the equipment and cash flows being valued. This repo uses no Architect quotes and has no exchange integration; [the market-context note](pricing/README.md#compute-markets-worth-following) explains the basis-risk distinction.
 
+## Use it in a quant library
+
+Install from a local checkout in a virtual environment with a current pip:
+
+```sh
+python3 -m venv .venv
+# macOS/Linux:
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install .
+# Windows equivalents: .venv\Scripts\python.exe -m pip ...
+```
+
+Use that environment's Python in your quant project. The package has no runtime dependencies; pandas and NumPy adapters can consume its records without becoming requirements of the pricing engine.
+
+```python
+from gpu_valuation import AssetInputs, value_asset, value_batch
+
+inputs = AssetInputs(
+    revenue=10000, erosion=0.08, operating_cost=2500,
+    salvage=25000, discount_rate=0.10,
+)
+result = value_asset(inputs)
+print(result.value, result.retirement)
+records = [quote.to_dict() for quote in value_batch([inputs])]
+```
+
+The public API uses immutable validated inputs and typed results. Valuation, configuration/export, CLI, plotting, and insurance settlement have separate responsibilities. Batch and surface clients accept a replacement pricing callable through a small `Pricer` protocol. The original `pricing_surface.asset_value(...)` dictionary API remains supported.
+
+Run `python3 -m unittest discover -s tests -v` for API, economic, numerical, export and insurance checks. The suite compares against independent stopping optimization, checks finite-difference sensitivities and unit scaling, and verifies that refactoring preserves the published surface. CI is configured for Python 3.9, 3.12 and 3.13. See [contributing](CONTRIBUTING.md) for packaging and research checks.
+
+## For insurers assessing residual value
+
+The surface helps stress the earnings that might support a resale price. It **does not estimate salvage independently**: salvage is an input. Insurers need observed net sale proceeds and a calibrated distribution at the guarantee date, with condition, remarketing costs and common market shocks represented.
+
+A separate `residual_guarantee` API calculates scenario-weighted shortfalls after a deductible and payout cap. It requires externally supplied recovery probabilities and does not infer a premium. The [insurer guide](pricing/INSURERS.md) includes a worked example, a data workflow and the limits of this model.
+
 ## Author
 
 **Uwe Jens Cerron · Liquid Labor**
@@ -122,3 +158,9 @@ For the stationary screen, copy `anc/screen-example.json` and replace its invent
 The margin is `max(0, utilization * (service_price * throughput - active_cost)) - fixed_cost - discount_rate * salvage` for a feasible workload. Infeasible workloads contribute zero operating surplus. A positive margin favors retention under stationary assumptions. It does not predict how long those conditions will last. Document the source of every measured input and update `evidence_status` accurately.
 
 Individual scripts write `anc/results.json`, `anc/data_audit.json`, and `survival.dat` as applicable. The screen prints JSON to the terminal. To save it, use `python3 anc/retention_screen.py anc/screen-example.json > my-screen-results.json`. The single-command runner avoids changing the checked-in references.
+
+## License and contributions
+
+Copyright © 2026 Uwe Jens Cerron. The Python code and software usage documentation are available under the [MIT License](LICENSE): others may use, modify and redistribute them, including commercially, while retaining the copyright and license notices. Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md). MIT does not require downstream modifications to be made public.
+
+The paper retains its separate publication license. The GetDeploying dataset remains CC BY 4.0 with the attribution above; it is not relicensed under MIT. No trademark rights or third-party endorsement are granted.

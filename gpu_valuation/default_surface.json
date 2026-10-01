@@ -1,0 +1,15 @@
+{
+  "evidence_status": "Synthetic example, scaled from the paper. Not market-calibrated.",
+  "currency": "USD",
+  "time_unit": "year",
+  "revenue": 10000.0,
+  "operating_cost": 2500.0,
+  "salvage": 25000.0,
+  "discount_rate": 0.10,
+  "baseline_erosion": 0.08,
+  "revenue_multiplier_min": 0.4,
+  "revenue_multiplier_max": 1.6,
+  "erosion_min": 0.01,
+  "erosion_max": 0.20,
+  "grid_points": 121
+}

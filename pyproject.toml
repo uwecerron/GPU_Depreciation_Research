@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "liquid-labor-gpu-valuation"
+version = "0.1.0"
+description = "Deterministic GPU asset valuation and residual-guarantee scenario analysis"
+readme = "pricing/README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+authors = [{name = "Uwe Jens Cerron"}]
+dependencies = []
+
+[project.optional-dependencies]
+plot = ["matplotlib==3.9.4"]
+
+[project.urls]
+Repository = "https://github.com/uwecerron/GPU_Depreciation_Research"
+Research = "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7549859"
+Author = "https://liquid-labor.com"
+
+[project.scripts]
+gpu-valuation-surface = "gpu_valuation.cli:main"
+
+[tool.setuptools]
+packages = ["gpu_valuation"]
+
+[tool.setuptools.package-data]
+gpu_valuation = ["py.typed", "default_surface.json"]
