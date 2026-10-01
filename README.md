@@ -4,6 +4,26 @@ Reproduction code for **When Software Extends GPU Life: Workload Choice and Econ
 
 [Read the research on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7549859)
 
+## Explore the model
+
+**What if algorithmic improvements reduce the rate of obsolescence?** Change software productivity growth and service price erosion in the [interactive simulation](visuals/simulation.html). Download the repository and open that HTML file in a browser. It works offline, with no installation or account. GitHub displays the source rather than running it.
+
+![Screenshot of the interactive model showing revenue erosion, retirement, and cohort survival](visuals/simulation.png)
+
+This screenshot uses the paper's synthetic example: productivity growth of 8% and price erosion of 14% leave revenue erosion of 6% per year. The illustrative asset retires at 11.55 model years, versus 8.66 in the baseline. Cohort survival at year 10 is 54.9%, versus 44.9%. These are model outputs, not observed GPU lifetimes. The cohort mean lifetime in the paper is a different statistic from the individual retirement date shown here.
+
+Try raising price erosion to 30% while holding productivity growth at 8%. The same asset then retires at 3.15 model years. The result depends on the assumptions, not just on software getting better. The controls keep price erosion above productivity growth so the finite-retirement formula applies; raising productivity growth may raise the price slider's minimum.
+
+To reproduce the plotted trajectories as a spreadsheet-readable CSV:
+
+```sh
+python3 simulate.py
+```
+
+The script writes [visuals/scenarios.csv](visuals/scenarios.csv): three scenarios, 301 time points each. It uses the retirement function from `anc/verify.py`. The dashboard evaluates the same closed-form equations in JavaScript. Its reset button restores the screenshot's assumptions. To recreate the screenshot, open `visuals/simulation.html`, choose **Reset paper example**, and capture the full page in your browser. Font rendering and browser width may change the layout.
+
+The model holds operating costs and salvage constant. Revenue is normalized, time is in model years, and the cohort assumes an exponential distribution of initial log revenue buffers. Full parameters and equations appear below the charts.
+
 ## Author
 
 **Uwe Jens Cerron · Liquid Labor**
