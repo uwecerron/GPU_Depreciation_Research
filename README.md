@@ -83,7 +83,7 @@ A separate `residual_guarantee` API calculates scenario-weighted shortfalls afte
 
 - Website: [liquid-labor.com](https://liquid-labor.com)
 - LinkedIn: [Uwe Cerron](https://www.linkedin.com/in/uwecerron/)
-- X / Twitter: [@uwece](https://x.com/uwece)
+- X / Twitter (personal and professional): [@traders_guild](https://x.com/traders_guild)
 
 ## Reproduce the paper checks
 
