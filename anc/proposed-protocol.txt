@@ -1,0 +1,93 @@
+PROPOSED STUDY PROTOCOL | NOT PREREGISTERED OR EXECUTED
+Version: 2026-10-01. Proposed release window: 2026-10-01 to 2027-09-30.
+This window is a proposed observation period, not a scheduled autonomous study.
+
+QUESTION AND PRIMARY DIRECTION
+Does memory-relieving software improve old-hardware retention margins more
+than matched comparison releases under a fixed competitive-price scenario?
+Primary mu = weighted paired margin change for memory-relieving releases.
+Primary beta = mu minus the corresponding comparison-release mean.
+Predict both mu>0 and beta>0. Relative outperformance alone can occur when
+both groups lose margin. Positive changes alone need not make retention profitable.
+This is a proposed contrast, not automatically a causal estimator: release
+selection is observational. Benchmarks can isolate engineering changes;
+market outcomes need a separate identification strategy.
+
+BEFORE CONFIRMATORY OUTCOMES ARE INSPECTED
+Publish a timestamped inventory specifying all of the following:
+- Exact old/new GPU variants, quantities, driver and firmware versions,
+  power caps, host/interconnect configuration and initial software commits.
+- Workload/model/dataset versions, quality metric and tolerance, context and
+  output length, latency percentile target, batch and concurrency settings.
+- Release eligibility by documented mechanism and availability/compatibility.
+  Classification cannot depend on measured post-release gains. Comparison
+  releases must be selected by documented methods, never by observed speedups.
+- All workload cells, including failures; fixed sampling weights and strata.
+- Baseline memory exposure, baseline economic margin and matching rules.
+  Memory-relieving releases and comparisons should share workload targets.
+- A single primary utilization/price/cost/salvage scenario with currency and
+  time units. Define the mapping from measured new-GPU cost changes to old
+  service-price assumptions before seeing margin outcomes. Other pass-through
+  assumptions are sensitivities, not alternative primary outcomes.
+- Exact statistical estimand, matching algorithm, sample size/power rationale,
+  independent release/hardware clusters, interval estimator and alpha level.
+  Freeze a simultaneous 95% procedure for the two primary means, for example
+  Bonferroni-adjusted 97.5% two-sided intervals for each. Validate the chosen
+  cluster-based estimator for the number of independent releases available.
+- A held-out workload set and rules for pilot-informed design changes.
+A pilot can inform feasibility and power but must be excluded from confirmation.
+These fields are not yet populated; the study is not ready to claim registration.
+
+BENCHMARK PROCEDURE
+Use matched pre/post commits and fixed targets. Randomize execution order;
+record warm-up, thermal state, repetitions and timing distributions. Measure
+GPU and stated host energy, throughput and memory. Log every failed run and
+why it failed. Kernel incompatibility and quality/latency failure are outcomes,
+not reasons to delete a cell. Pair runs on unchanged hardware configurations.
+Test competing hardware too. Confirmatory releases must be assessed with the
+frozen protocol, including eligible releases that appear unpromising.
+
+OUTCOMES
+Primary: mu and beta using best operating-or-idle margin M. For feasible cells:
+M=max(0,u*(p*q-c))-F-rho*S; infeasible cells use M=-F-rho*S.
+Dollar-valued tier-specific revenues share a common time unit before averaging.
+Secondary: positive-margin conversion, break-even service price, throughput,
+energy, technical feasibility, and the fraction of preselected workloads
+meeting quality and latency. These are alternative uses, not additive capacity.
+No extra-years estimate is primary. Any modeled Delta T must show its assumed
+price path, future cost path, salvage, uncertainty and model closure.
+
+COMPARISON AND INFERENCE
+Do not compare only previously infeasible treatment cells to already-feasible
+controls on new-feasibility counts. That would reward the selection rule.
+Use baseline memory exposure and profitability to specify strata and match
+controls without post-treatment information. Hardware, workload and release
+shared effects must be reflected in inference. Repeated timing runs increase
+measurement precision; they do not create independent market observations.
+With too few independent clusters, use descriptive estimates and uncertainty
+ranges, not spurious significance. Report all declared sensitivity scenarios.
+
+INTERPRETATION
+Simultaneous lower bounds for both mu and beta above zero: supports the joint
+forecast. Either upper bound nonpositive: evidence against it. Other outcomes
+are inconclusive. Adequacy and sample-size rules must be met first.
+These intervals are conditional on economic scenarios and cannot establish
+that real service prices, utilization or switching costs follow those scenarios.
+Preservation only at unchanged prices: engineering benefit, not robust
+competitive preservation. Power/site scarcity or migration costs that erase
+margins weaken the operational interpretation. No adequate data: incomplete.
+A positive result does not establish causal market retirement or accounting
+useful lives without a matched longitudinal survival study.
+
+LONGITUDINAL EXTENSION
+Track device/cohort identities across operators, resale and workload changes.
+Define loss of a frontier role before observing exit; do not use model vintage
+as a device installation date. Treat unknown destinations as censored rather
+than retired. Separate physical failure, voluntary scrapping and resale.
+Use actual deployment/adoption timing and appropriate untreated comparisons.
+Release dates alone cannot identify a causal retirement effect.
+
+DISCLOSURE
+No GPU measurements have been run for this proposed study. The delivered
+screening example is synthetic. No study has been publicly registered, no
+funding or GPU rental has been committed, and no automated monitoring job exists.

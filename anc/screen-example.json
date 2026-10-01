@@ -1,0 +1,12 @@
+{
+  "evidence_status": "SYNTHETIC DEMONSTRATION; NOT OBSERVED GPU DATA",
+  "currency": "USD",
+  "time_unit": "hour",
+  "notes": "Throughput is services/hour; service price USD/service; active and fixed costs USD/hour; rho is the continuous annual rate 0.1 divided by 8760. All values are invented to demonstrate the screen.",
+  "cases": [
+    {"label":"before: incompatible workload","feasible":false,"throughput":null,"utilization":0.5,"active_cost":0.2,"fixed_cost":0.1,"discount_rate":0.00001141552511415525,"salvage":100,"service_price":0.005},
+    {"label":"after: feasible, favorable price scenario","feasible":true,"throughput":100,"utilization":0.5,"active_cost":0.2,"fixed_cost":0.1,"discount_rate":0.00001141552511415525,"salvage":100,"service_price":0.005},
+    {"label":"after: feasible, competing prices erase preservation","feasible":true,"throughput":100,"utilization":0.5,"active_cost":0.2,"fixed_cost":0.1,"discount_rate":0.00001141552511415525,"salvage":100,"service_price":0.003},
+    {"label":"after: no utilization","feasible":true,"throughput":100,"utilization":0,"active_cost":0.2,"fixed_cost":0.1,"discount_rate":0.00001141552511415525,"salvage":100,"service_price":0.005}
+  ]
+}

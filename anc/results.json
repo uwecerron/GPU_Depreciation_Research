@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "synthetic": true,
+  "cohort": {
+    "baseline": {
+      "g": 0.04,
+      "gamma": 0.12,
+      "d": 0.07999999999999999,
+      "hazard": 0.07999999999999999,
+      "mean_life": 12.500000000000002,
+      "life_at_buffer_log2": 8.664339756999317,
+      "survival_10": 0.4493289641172217,
+      "value_at_time_0": 3.989884905837461
+    },
+    "improved": {
+      "g": 0.08,
+      "gamma": 0.14,
+      "d": 0.06000000000000001,
+      "hazard": 0.06000000000000001,
+      "mean_life": 16.666666666666664,
+      "life_at_buffer_log2": 11.55245300933242,
+      "survival_10": 0.5488116360940264,
+      "value_at_time_0": 4.3405879921382216
+    }
+  },
+  "migration": {
+    "baseline": {
+      "retirement": 4.054651081081643,
+      "switch": 2.8768207245178083
+    },
+    "improved": {
+      "retirement": 8.109302162163287,
+      "switch": 1.917880483011872
+    }
+  },
+  "mixed_hazard_counterexample": {
+    "d_1_at_t_1": 0.05514728887382404,
+    "d_half_at_t_1": 2.0096989718765164
+  },
+  "dp_cases": 100,
+  "max_dp_time_error_in_grid_intervals": 0.4998868091391273,
+  "max_dp_value_error": 9.873290451878347e-08,
+  "max_bellman_residual": 8.541037321840861e-11,
+  "market_grid_points_per_regime": 301,
+  "cohort_quantiles_per_regime": 100000,
+  "limitations": "Implementation checks, not empirical validation or novelty review."
+}

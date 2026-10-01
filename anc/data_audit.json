@@ -1,0 +1,44 @@
+{
+  "url": "https://getdeploying.com/dataset/gpu-prices/weekly.json",
+  "retrieved_utc": "2026-10-01T01:45:01.133855+00:00",
+  "sha256": "ea8a3531d55e22b0c3622be6359f1c379edf11adbaa76035f37fe5870c6250d0",
+  "total_rows": 15450,
+  "columns": [
+    "gpu_slug",
+    "date",
+    "billing_type",
+    "reservation_months",
+    "min_price",
+    "max_price",
+    "median_price",
+    "provider_median_price",
+    "provider_count",
+    "offering_count"
+  ],
+  "selected_on_demand_series": {
+    "nvidia-v100": {
+      "rows": 53,
+      "first_date": "2025-09-29",
+      "last_date": "2026-09-28"
+    },
+    "nvidia-a100": {
+      "rows": 53,
+      "first_date": "2025-09-29",
+      "last_date": "2026-09-28"
+    },
+    "nvidia-h100": {
+      "rows": 53,
+      "first_date": "2025-09-29",
+      "last_date": "2026-09-28"
+    }
+  },
+  "paper_publication_dates_not_adoption_dates": {
+    "FlashAttention paper v1": "2022-05-27",
+    "GPTQ paper v1": "2022-10-31",
+    "PagedAttention paper v1": "2023-09-12"
+  },
+  "provider_identifier_present": false,
+  "all_target_events_precede_selected_series": true,
+  "conclusion": "Coverage audit only. No provider-matched release effect identified. Posted aggregates do not verify contractability or asset value.",
+  "attribution": "GetDeploying, GPU rental price history, https://getdeploying.com/dataset/gpu-prices, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/"
+}

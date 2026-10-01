@@ -1,0 +1,39 @@
+{
+  "evidence_status": "SYNTHETIC DEMONSTRATION; NOT OBSERVED GPU DATA",
+  "currency": "USD",
+  "time_unit": "hour",
+  "results": [
+    {
+      "label": "before: incompatible workload",
+      "best_operating_surplus": 0.0,
+      "retention_margin": -0.10114155251141553,
+      "break_even_service_price": null,
+      "stationary_retention_strictly_preferred": false,
+      "interpretation": "Stationary screen, not a retirement date or empirical result."
+    },
+    {
+      "label": "after: feasible, favorable price scenario",
+      "best_operating_surplus": 0.15,
+      "retention_margin": 0.048858447488584464,
+      "break_even_service_price": 0.00402283105022831,
+      "stationary_retention_strictly_preferred": true,
+      "interpretation": "Stationary screen, not a retirement date or empirical result."
+    },
+    {
+      "label": "after: feasible, competing prices erase preservation",
+      "best_operating_surplus": 0.04999999999999999,
+      "retention_margin": -0.05114155251141554,
+      "break_even_service_price": 0.00402283105022831,
+      "stationary_retention_strictly_preferred": false,
+      "interpretation": "Stationary screen, not a retirement date or empirical result."
+    },
+    {
+      "label": "after: no utilization",
+      "best_operating_surplus": 0.0,
+      "retention_margin": -0.10114155251141553,
+      "break_even_service_price": null,
+      "stationary_retention_strictly_preferred": false,
+      "interpretation": "Stationary screen, not a retirement date or empirical result."
+    }
+  ]
+}
